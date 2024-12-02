@@ -178,7 +178,7 @@ pyrightconfig.json
 
 # Custom rules (everything added below won't be overridden by 'Generate .gitignore File' if you use 'Update' option)
 
-accounts.json
+accounts/*.json
 sessions
 logs
 runbot.bat
