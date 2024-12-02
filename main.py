@@ -165,6 +165,13 @@ def argumentParser() -> argparse.Namespace:
         default=None,
         help="Optional: Set to only search in either desktop or mobile (ex: 'desktop' or 'mobile')",
     )
+    parser.add_argument(
+        "-f",
+        "--file",
+        type=str,
+        default="accounts/accounts.json",
+        help="Optional: path to json file containing accounts information",
+    )
     return parser.parse_args()
 
 
@@ -176,7 +183,7 @@ def setupAccounts() -> list[Account]:
         pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
         return bool(re.match(pattern, email))
 
-    accountPath = Utils.getProjectRoot() / "accounts.json"
+    accountPath = Utils.getProjectRoot() / Utils.args.file
     if not accountPath.exists():
         accountPath.write_text(
             json.dumps(
