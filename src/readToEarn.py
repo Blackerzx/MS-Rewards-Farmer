@@ -69,7 +69,7 @@ class ReadToEarn:
         logging.info("[READ TO EARN] Daily App Check In")
         r = mobileApp.post("https://prod.rewardsplatform.microsoft.com/dapi/me/activities",json=json_data)
         balance = r.json().get("response").get("balance")
-        time.sleep(random.randint(10, 20))
+        time.sleep(random.randint(700, 1000)/100)
 
         # json data to confirm an article is read
         json_data = {
@@ -94,6 +94,6 @@ class ReadToEarn:
             else:
                 logging.info("[READ TO EARN] Read Article " + str(i+1))
                 balance = newbalance
-                time.sleep(random.randint(10, 20))
+                time.sleep(random.randint(700, 1000)/100)
         
         logging.info("[READ TO EARN] Completed the Read to Earn successfully !") 

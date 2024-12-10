@@ -112,10 +112,10 @@ class MorePromotions:
                     # Default to completing search
                     self.activities.completeSearch()
                 self.browser.webdriver.execute_script("window.scrollTo(0, 1080)")
-                time.sleep(random.randint(5, 10))
+                time.sleep(random.randint(100, 250)/100)
 
                 self.browser.utils.resetTabs()
-                time.sleep(2)
+                time.sleep(1.5)
             except Exception:  # pylint: disable=broad-except
                 logging.error("[MORE PROMOS] Error More Promotions", exc_info=True)
                 # Reset tabs in case of an exception

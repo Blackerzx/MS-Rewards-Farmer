@@ -82,13 +82,13 @@ class Utils:
             expected_conditions.element_to_be_clickable((by, selector))
         )
 
-    def checkIfTextPresentAfterDelay(self, text: str, timeToWait: float = 10) -> bool:
+    def checkIfTextPresentAfterDelay(self, text: str, timeToWait: float = 7) -> bool:
         time.sleep(timeToWait)
         text_found = re.search(text, self.webdriver.page_source)
         return text_found is not None
 
     def waitUntilQuestionRefresh(self) -> WebElement:
-        return self.waitUntilVisible(By.CLASS_NAME, "rqECredits", timeToWait=20)
+        return self.waitUntilVisible(By.CLASS_NAME, "rqECredits", timeToWait=8)
 
     def waitUntilQuizLoads(self) -> WebElement:
         return self.waitUntilVisible(By.XPATH, '//*[@id="rqStartQuiz"]')

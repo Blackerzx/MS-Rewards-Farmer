@@ -134,7 +134,7 @@ class Searches:
                     f"google_trends after load = {list(self.googleTrendsShelf.items())}"
                 )
             self.bingSearch()
-            time.sleep(random.randint(10, 15))
+            time.sleep(random.randint(600, 800)/100)
 
         logging.info(
             f"[BING] Finished {self.browser.browserType.capitalize()} Edge Bing searches !"

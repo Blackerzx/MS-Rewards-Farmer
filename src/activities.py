@@ -19,7 +19,7 @@ class Activities:
         element = self.webdriver.find_element(By.XPATH,
                                               f'//*[@id="daily-sets"]/mee-card-group[1]/div/mee-card[{cardId}]/div/card-content/mee-rewards-daily-set-item-content/div/a', )
         self.browser.utils.click(element)
-        self.browser.utils.switchToNewTab(timeToWait=8)
+        self.browser.utils.switchToNewTab(timeToWait=6)
 
     def openMorePromotionsActivity(self, cardId: int):
         # Open the More Promotions activity for the given cardId
@@ -30,14 +30,14 @@ class Activities:
 
     def completeSearch(self):
         # Simulate completing a search activity
-        time.sleep(random.randint(10, 15))
+        time.sleep(random.randint(600, 800)/100)
         self.browser.utils.closeCurrentTab()
 
     def completeSurvey(self):
         # Simulate completing a survey activity
         # noinspection SpellCheckingInspection
         self.webdriver.find_element(By.ID, f"btoption{random.randint(0, 1)}").click()
-        time.sleep(random.randint(10, 15))
+        time.sleep(random.randint(600, 800)/100)
         self.browser.utils.closeCurrentTab()
 
     def completeQuiz(self):
@@ -97,11 +97,11 @@ class Activities:
         for question in range(numberOfQuestions):
             element = self.webdriver.find_element(By.ID, f"questionOptionChoice{question}{random.randint(0, 2)}")
             self.browser.utils.click(element)
-            time.sleep(random.randint(10, 15))
+            time.sleep(random.randint(75, 250)/100)
             element = self.webdriver.find_element(By.ID, f"nextQuestionbtn{question}")
             self.browser.utils.click(element)
-            time.sleep(random.randint(10, 15))
-        time.sleep(random.randint(1, 7))
+            time.sleep(random.randint(75, 250)/100)
+        time.sleep(random.randint(75, 250)/100)
         self.browser.utils.closeCurrentTab()
 
     def completeThisOrThat(self):
@@ -111,7 +111,7 @@ class Activities:
         self.browser.utils.waitUntilVisible(
             By.XPATH, '//*[@id="currentQuestionContainer"]/div/div[1]', 10
         )
-        time.sleep(random.randint(10, 15))
+        time.sleep(random.randint(75, 250)/100)
         for _ in range(10):
             correctAnswerCode = self.webdriver.execute_script(
                 "return _w.rewardsQuizRenderInfo.correctAnswer"
@@ -125,9 +125,9 @@ class Activities:
                 answerToClick = answer2
 
             self.browser.utils.click(answerToClick)
-            time.sleep(random.randint(10, 15))
+            time.sleep(random.randint(75, 250)/100)
 
-        time.sleep(random.randint(10, 15))
+        time.sleep(random.randint(550, 750)/100)
         self.browser.utils.closeCurrentTab()
 
     def getAnswerAndCode(self, answerId: str) -> tuple[WebElement, str]:
